@@ -8,7 +8,7 @@
 struct FriendsSection: Comparable {
 
     var key: Character
-    var data: [FriendModel]
+    var data: [Friend]
 
     static func < (lhs: FriendsSection, rhs: FriendsSection) -> Bool {
         return lhs.key < rhs.key

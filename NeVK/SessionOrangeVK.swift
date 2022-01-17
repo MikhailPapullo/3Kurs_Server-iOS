@@ -13,6 +13,6 @@ class SessionOrangeVK {
     
     private init() {}
     
-    var token = ""
-    var userID = 0
+    var token: String?
+    var userId: Int?
 }

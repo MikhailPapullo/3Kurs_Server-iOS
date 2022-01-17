@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sux-yB-WnZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CtJ-Hj-biH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -62,9 +62,6 @@
                                             </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="fLR-P5-LeF" kind="show" id="o50-xx-Lt4"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVB-up-D8e" customClass="CustomLabel" customModule="NeVK" customModuleProvider="target">
                                         <rect key="frame" x="154.5" y="100" width="105" height="28.5"/>
@@ -173,7 +170,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6271.0144927536239" y="70.982142857142847"/>
+            <point key="canvasLocation" x="5538" y="71"/>
+        </scene>
+        <!--Service-->
+        <scene sceneID="k46-cI-dLI">
+            <objects>
+                <viewController id="CtJ-Hj-biH" customClass="VKService" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2gF-wZ-x0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ize-2a-S6Z">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fve-gl-a1S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fve-gl-a1S" firstAttribute="trailing" secondItem="Ize-2a-S6Z" secondAttribute="trailing" id="6D1-yu-UBb"/>
+                            <constraint firstItem="Fve-gl-a1S" firstAttribute="bottom" secondItem="Ize-2a-S6Z" secondAttribute="bottom" id="CIY-SD-5sR"/>
+                            <constraint firstItem="Ize-2a-S6Z" firstAttribute="leading" secondItem="Fve-gl-a1S" secondAttribute="leading" id="JXq-Kh-MPb"/>
+                            <constraint firstItem="Ize-2a-S6Z" firstAttribute="top" secondItem="Fve-gl-a1S" secondAttribute="top" id="pFE-fv-QQ4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Ize-2a-S6Z" id="M4z-SN-y3R"/>
+                        <segue destination="fLR-P5-LeF" kind="show" identifier="login" id="GsZ-lV-xHz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rZ-LD-eAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6362" y="71"/>
         </scene>
         <!--Loading-->
         <scene sceneID="O8d-O1-WDY">
@@ -189,14 +221,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAm-fm-sSE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5347.826086956522" y="767.41071428571422"/>
+            <point key="canvasLocation" x="5470" y="773"/>
         </scene>
         <!--Photo Carousel View Controller-->
         <scene sceneID="hjS-el-ZK8">
             <objects>
                 <viewController storyboardIdentifier="PhotoCarouselViewController" id="u9V-FS-eep" customClass="PhotoCarouselViewController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3N6-r7-gAH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="fP4-1d-21y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -205,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beC-zt-JX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10728" y="-290"/>
+            <point key="canvasLocation" x="10759" y="-670"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hb9-Cn-5oY">
@@ -223,14 +255,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zC-Tq-vRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5417" y="71"/>
+            <point key="canvasLocation" x="4610" y="71"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="cy8-Jz-5YE">
             <objects>
                 <tableViewController id="2td-dI-whj" customClass="FriendsViewController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="VZr-C5-22e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="w5m-St-VpC">
@@ -297,7 +329,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsu-mw-H3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9108.6956521739139" y="-289.28571428571428"/>
+            <point key="canvasLocation" x="9038" y="-670"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="x1y-7i-iLd">
@@ -325,7 +357,7 @@
             <objects>
                 <tableViewController id="kou-H5-LWd" customClass="NewsController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ksb-7Q-zlb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -356,7 +388,7 @@
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.2.fill" catalog="system" id="x1h-0N-Vr0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bnt-FX-oE4">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -366,14 +398,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAH-J5-0li" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8196" y="-289"/>
+            <point key="canvasLocation" x="8190" y="-670"/>
         </scene>
         <!--Мои Группы-->
         <scene sceneID="q01-kK-Nwx">
             <objects>
                 <tableViewController id="8Bm-dg-XJG" customClass="MyGroupsViewController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1Db-ZK-2es">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -433,7 +465,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kQ-ue-VFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11836.231884057972" y="443.97321428571428"/>
+            <point key="canvasLocation" x="9038" y="98"/>
         </scene>
         <!--Группы-->
         <scene sceneID="SEh-ts-IJb">
@@ -442,7 +474,7 @@
                     <tabBarItem key="tabBarItem" title="Группы" image="rectangle.on.rectangle.fill" catalog="system" id="a9z-Lm-lVF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ywh-Hc-zw9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -452,14 +484,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw2-Oa-4ue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10926.08695652174" y="443.97321428571428"/>
+            <point key="canvasLocation" x="8190" y="99"/>
         </scene>
         <!--Группы-->
         <scene sceneID="R6l-dF-IK8">
             <objects>
                 <tableViewController id="wFG-GV-D2d" customClass="GroupsViewController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MYf-li-M1x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -515,14 +547,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ut-Sn-2vB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="wrx-Ou-bz0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="12652.17391304348" y="443.97321428571428"/>
+            <point key="canvasLocation" x="9899" y="98"/>
         </scene>
         <!--Friend Photo Collection View Controller-->
         <scene sceneID="VyX-Cd-rRT">
             <objects>
                 <collectionViewController storyboardIdentifier="FriendPhotoCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NAE-Mv-XLC" customClass="FriendPhotoCollectionViewController" customModule="NeVK" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="t3g-3b-rof">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rjp-7G-EI6">
@@ -624,7 +656,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CX-Ij-j1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9885.507246376812" y="-289.28571428571428"/>
+            <point key="canvasLocation" x="9899" y="-670"/>
         </scene>
         <!--Новости-->
         <scene sceneID="qKv-dX-dEO">
@@ -634,7 +666,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4dO-cu-yLk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kb-Qo-kiS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

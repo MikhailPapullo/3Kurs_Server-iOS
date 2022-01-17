@@ -11,16 +11,16 @@ final class FriendsViewController: UITableViewController {
     
     
     @IBOutlet weak var searchBar: UISearchBar!
-    private var friends = FriendsLoader.iNeedFriends()
-    private var lettersOfNames = [String]()
-    lazy var filteredFriends = friends
+    var friends: [FriendsSection] = []
+    var lettersOfNames: [String] = []
+    var filteredFriends: [FriendsSection] = []
+    var service = FriendsServiceManager()
     
     func searchBarAnimateClosure () -> () -> Void {
         return {
             guard
                 let scopeView = self.searchBar.searchTextField.leftView,
-                let placeholderLabel = self.searchBar.textField?.value(forKey:
-                "placeholderLabel") as?
+                let placeholderLabel = self.searchBar.textField?.value(forKey: "placeholderLabel") as?
                     UILabel
             else {
                 return
@@ -46,7 +46,7 @@ final class FriendsViewController: UITableViewController {
         self.tableView.sectionFooterHeight = 0.0
         self.tableView.sectionHeaderHeight = 50.0
         searchBar.delegate = self
-        loadLetters()
+        fetchFriends()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,8 +87,14 @@ final class FriendsViewController: UITableViewController {
         cell.layer.shadowOpacity = 10
         
         let section = filteredFriends[indexPath.section]
+        let name = section.data[indexPath.row].firstName
+        let photo = section.data[indexPath.row].photo50
+        cell.friendName.text = name
+        
+        service.loadImage(url:photo) { image in
+            cell.friendAvatar.image = image
+        }
 
-        cell.configure(model: section.data[indexPath.row])
         return cell
     }
     
@@ -106,7 +112,7 @@ final class FriendsViewController: UITableViewController {
                 return
             }
             let section = filteredFriends[indexPathSection]
-            vc.friend = section.data[indexPathRow]
+//            vc.friend = section.data[indexPathRow]
         }
     }
 }
@@ -114,15 +120,15 @@ final class FriendsViewController: UITableViewController {
 extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredFriends = []
-        
+
         if searchText == "" {
             filteredFriends = friends
         } else {
             for section in friends {
                 for (_, friend) in section.data.enumerated() {
-                    if friend.name.lowercased().contains(searchText.lowercased()) {
+                    if friend.firstName.lowercased().contains(searchText.lowercased()) {
                         var searchedSection = section
-                        
+
                         if filteredFriends.isEmpty {
                             searchedSection.data = [friend]
                             filteredFriends.append(searchedSection)
@@ -192,6 +198,18 @@ private extension FriendsViewController {
         }
     }
 
+    func fetchFriends() {
+        service.loadFriends { [weak self] friends in
+            guard let self = self else { return }
+            self.friends = friends
+            self.filteredFriends = friends
+            self.loadLetters()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     func createHeaderView(section: Int) -> UIView {
         let header = GradientView()
         header.startColor = .systemGray6
@@ -200,13 +218,11 @@ private extension FriendsViewController {
         let letter = UILabel(frame: CGRect(x: 10, y: 10, width: 10, height: 10))
         letter.textColor = .black
         letter.text = lettersOfNames[section]
-        letter.font = UIFont.systemFont(ofSize: 15)
+        letter.font = UIFont.systemFont(ofSize: 12)
         header.addSubview(letter)
         return header
     }
 }
-
-import UIKit
 
 extension UISearchBar {
     public var textField: UITextField? {
@@ -294,4 +310,3 @@ extension UISearchBar {
             self.init(cgImage: (image?.cgImage!)!)
         }
     }
-
