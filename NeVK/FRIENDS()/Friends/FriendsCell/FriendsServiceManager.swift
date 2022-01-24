@@ -5,6 +5,7 @@
 //  Created by Mikhail Papullo on 1/13/22.
 //
 
+import RealmSwift
 import Foundation
 import UIKit
 
@@ -19,6 +20,7 @@ class FriendsServiceManager {
             switch result {
             case .success(let friend):
                 let section = self.formFriendsArray(from: friend.response.items)
+                self.saveFriend(friends: friend.response.items)
                 completion(section)
             case .failure(_):
                 return
@@ -40,6 +42,17 @@ class FriendsServiceManager {
     }
 }
 private extension FriendsServiceManager {
+    
+    func saveFriend(friends: [Friend]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(friends)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
     
     func formFriendsArray(from array: [Friend]?) -> [FriendsSection] {
         guard let array = array else {

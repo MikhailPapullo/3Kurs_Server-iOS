@@ -9,8 +9,7 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var friendName: UILabel!
-    @IBOutlet weak var friendPicture: UIImageView!
-    @IBOutlet weak var friendPicture2: UIImageView!
+    @IBOutlet weak var photoImage: UIImageView!
+    
     
 }

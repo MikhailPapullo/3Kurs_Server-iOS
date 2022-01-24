@@ -37,7 +37,6 @@
 		9445FFD3275AB8B800140B5D /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFD2275AB8B800140B5D /* GroupsViewController.swift */; };
 		9445FFD5275AB99600140B5D /* FriendsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFD4275AB99600140B5D /* FriendsViewCell.swift */; };
 		9445FFD7275AB9C600140B5D /* GroupsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFD6275AB9C600140B5D /* GroupsViewCell.swift */; };
-		9445FFDB275ACD7000140B5D /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFDA275ACD7000140B5D /* GroupModel.swift */; };
 		9445FFDD275ACDCE00140B5D /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFDC275ACDCE00140B5D /* FriendModel.swift */; };
 		9445FFE6275B267E00140B5D /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFE5275B267E00140B5D /* MyGroupsCell.swift */; };
 		9445FFE8275B26A400140B5D /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFE7275B26A400140B5D /* MyGroupsViewController.swift */; };
@@ -57,6 +56,19 @@
 		94A96711279103CB001A3B14 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96710279103CB001A3B14 /* ImageLoader.swift */; };
 		94A96713279106F0001A3B14 /* FriendsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96712279106F0001A3B14 /* FriendsServiceManager.swift */; };
 		94A96715279265D5001A3B14 /* GroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96714279265D5001A3B14 /* GroupsService.swift */; };
+		94A96718279A2CAE001A3B14 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 94A96717279A2CAE001A3B14 /* SwiftKeychainWrapper */; };
+		94A9671B279A2E6E001A3B14 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 94A9671A279A2E6E001A3B14 /* Realm */; };
+		94A9671D279A2E6E001A3B14 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94A9671C279A2E6E001A3B14 /* RealmSwift */; };
+		94A9671F279A2F81001A3B14 /* CacheTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A9671E279A2F81001A3B14 /* CacheTestViewController.swift */; };
+		94A96722279A3681001A3B14 /* CasheCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94A96720279A3680001A3B14 /* CasheCoreData.xcdatamodeld */; };
+		94A96729279A39DC001A3B14 /* Human+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96727279A39DC001A3B14 /* Human+CoreDataClass.swift */; };
+		94A9672A279A39DC001A3B14 /* Human+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96728279A39DC001A3B14 /* Human+CoreDataProperties.swift */; };
+		94A9672C279A3A6A001A3B14 /* CoreDataServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A9672B279A3A6A001A3B14 /* CoreDataServiceManager.swift */; };
+		94A9672E279A4564001A3B14 /* RealmCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A9672D279A4564001A3B14 /* RealmCacheManager.swift */; };
+		94A96731279C9A09001A3B14 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96730279C9A09001A3B14 /* PhotoService.swift */; };
+		94A96734279C9BD1001A3B14 /* PhotoFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96733279C9BD1001A3B14 /* PhotoFriendsModel.swift */; };
+		94A96738279CCE15001A3B14 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96737279CCE15001A3B14 /* GroupModel.swift */; };
+		94A9673A279CD733001A3B14 /* JoinOrLeaveGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96739279CD733001A3B14 /* JoinOrLeaveGroup.swift */; };
 		9529CC73D1D67CF01FC077C5 /* Pods_NeVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BCB9CA3FC49A04E3F43A6BC /* Pods_NeVK.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +108,6 @@
 		9445FFD2275AB8B800140B5D /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		9445FFD4275AB99600140B5D /* FriendsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewCell.swift; sourceTree = "<group>"; };
 		9445FFD6275AB9C600140B5D /* GroupsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewCell.swift; sourceTree = "<group>"; };
-		9445FFDA275ACD7000140B5D /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		9445FFDC275ACDCE00140B5D /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		9445FFE5275B267E00140B5D /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		9445FFE7275B26A400140B5D /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +127,16 @@
 		94A96710279103CB001A3B14 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		94A96712279106F0001A3B14 /* FriendsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsServiceManager.swift; sourceTree = "<group>"; };
 		94A96714279265D5001A3B14 /* GroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsService.swift; sourceTree = "<group>"; };
+		94A9671E279A2F81001A3B14 /* CacheTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTestViewController.swift; sourceTree = "<group>"; };
+		94A96721279A3681001A3B14 /* CasheCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CasheCoreData.xcdatamodel; sourceTree = "<group>"; };
+		94A96727279A39DC001A3B14 /* Human+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Human+CoreDataClass.swift"; sourceTree = "<group>"; };
+		94A96728279A39DC001A3B14 /* Human+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Human+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		94A9672B279A3A6A001A3B14 /* CoreDataServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceManager.swift; sourceTree = "<group>"; };
+		94A9672D279A4564001A3B14 /* RealmCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCacheManager.swift; sourceTree = "<group>"; };
+		94A96730279C9A09001A3B14 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		94A96733279C9BD1001A3B14 /* PhotoFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFriendsModel.swift; sourceTree = "<group>"; };
+		94A96737279CCE15001A3B14 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
+		94A96739279CD733001A3B14 /* JoinOrLeaveGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrLeaveGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +144,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A9671D279A2E6E001A3B14 /* RealmSwift in Frameworks */,
+				94A9671B279A2E6E001A3B14 /* Realm in Frameworks */,
+				94A96718279A2CAE001A3B14 /* SwiftKeychainWrapper in Frameworks */,
 				9529CC73D1D67CF01FC077C5 /* Pods_NeVK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +223,8 @@
 		9445FF28274D9E1500140B5D = {
 			isa = PBXGroup;
 			children = (
+				94A96727279A39DC001A3B14 /* Human+CoreDataClass.swift */,
+				94A96728279A39DC001A3B14 /* Human+CoreDataProperties.swift */,
 				9445FF33274D9E1500140B5D /* NeVK */,
 				9445FF32274D9E1500140B5D /* Products */,
 				CE1F68F5A04016CEC8B5524D /* Pods */,
@@ -230,6 +256,9 @@
 				9445FF42274D9E1700140B5D /* Info.plist */,
 				942AA567276E988D005F0122 /* LoadingStuff */,
 				94A9670A278CF090001A3B14 /* VKService.swift */,
+				94A9671E279A2F81001A3B14 /* CacheTestViewController.swift */,
+				94A9672B279A3A6A001A3B14 /* CoreDataServiceManager.swift */,
+				94A96720279A3680001A3B14 /* CasheCoreData.xcdatamodeld */,
 			);
 			path = NeVK;
 			sourceTree = "<group>";
@@ -257,6 +286,7 @@
 			children = (
 				9445FFD0275AB89400140B5D /* FriendsViewController.swift */,
 				9445FFDE275ADEBF00140B5D /* FriendsCell */,
+				94A9672D279A4564001A3B14 /* RealmCacheManager.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -264,19 +294,11 @@
 		9445FFCF275AB85000140B5D /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				94A96735279CCB50001A3B14 /* GroupService */,
 				9445FFD2275AB8B800140B5D /* GroupsViewController.swift */,
 				9445FFDF275ADEE400140B5D /* GroupCell */,
 			);
 			path = Groups;
-			sourceTree = "<group>";
-		};
-		9445FFD8275ACCCF00140B5D /* GroupsModel */ = {
-			isa = PBXGroup;
-			children = (
-				9445FFDA275ACD7000140B5D /* GroupModel.swift */,
-				94A96714279265D5001A3B14 /* GroupsService.swift */,
-			);
-			path = GroupsModel;
 			sourceTree = "<group>";
 		};
 		9445FFD9275ACCDF00140B5D /* FriendsModel */ = {
@@ -324,6 +346,7 @@
 		9445FFE9275BC35E00140B5D /* OneFriend */ = {
 			isa = PBXGroup;
 			children = (
+				94A9672F279C99E1001A3B14 /* PhotoService */,
 				9445FFEA275BC3AB00140B5D /* FriendPhotoCollectionViewController.swift */,
 				9445FFEC275BC3B700140B5D /* PhotoCell */,
 			);
@@ -342,12 +365,12 @@
 		9445FFEF276018B900140B5D /* FRIENDS() */ = {
 			isa = PBXGroup;
 			children = (
+				94A9670C2790EE93001A3B14 /* FriendService.swift */,
+				94A9670E2790FCC0001A3B14 /* FriendServiceModel.swift */,
 				9445FFD9275ACCDF00140B5D /* FriendsModel */,
 				942AA515276182A9005F0122 /* Loader */,
 				9445FFCE275AB83300140B5D /* Friends */,
 				9445FFE9275BC35E00140B5D /* OneFriend */,
-				94A9670C2790EE93001A3B14 /* FriendService.swift */,
-				94A9670E2790FCC0001A3B14 /* FriendServiceModel.swift */,
 				94A96710279103CB001A3B14 /* ImageLoader.swift */,
 			);
 			path = "FRIENDS()";
@@ -357,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				9445FFCF275AB85000140B5D /* Groups */,
-				9445FFD8275ACCCF00140B5D /* GroupsModel */,
 				942AA5372766F49F005F0122 /* Loader */,
 				9445FFE0275B25BA00140B5D /* MyGroups */,
 			);
@@ -398,6 +420,41 @@
 			path = CustomControls;
 			sourceTree = "<group>";
 		};
+		94A9672F279C99E1001A3B14 /* PhotoService */ = {
+			isa = PBXGroup;
+			children = (
+				94A96732279C9BA5001A3B14 /* Model */,
+				94A96730279C9A09001A3B14 /* PhotoService.swift */,
+			);
+			path = PhotoService;
+			sourceTree = "<group>";
+		};
+		94A96732279C9BA5001A3B14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94A96733279C9BD1001A3B14 /* PhotoFriendsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94A96735279CCB50001A3B14 /* GroupService */ = {
+			isa = PBXGroup;
+			children = (
+				94A96736279CCE01001A3B14 /* GroupModel */,
+				94A96714279265D5001A3B14 /* GroupsService.swift */,
+			);
+			path = GroupService;
+			sourceTree = "<group>";
+		};
+		94A96736279CCE01001A3B14 /* GroupModel */ = {
+			isa = PBXGroup;
+			children = (
+				94A96737279CCE15001A3B14 /* GroupModel.swift */,
+				94A96739279CD733001A3B14 /* JoinOrLeaveGroup.swift */,
+			);
+			path = GroupModel;
+			sourceTree = "<group>";
+		};
 		CE1F68F5A04016CEC8B5524D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +482,11 @@
 			dependencies = (
 			);
 			name = NeVK;
+			packageProductDependencies = (
+				94A96717279A2CAE001A3B14 /* SwiftKeychainWrapper */,
+				94A9671A279A2E6E001A3B14 /* Realm */,
+				94A9671C279A2E6E001A3B14 /* RealmSwift */,
+			);
 			productName = NeVK;
 			productReference = 9445FF31274D9E1500140B5D /* NeVK.app */;
 			productType = "com.apple.product-type.application";
@@ -453,6 +515,10 @@
 				Base,
 			);
 			mainGroup = 9445FF28274D9E1500140B5D;
+			packageReferences = (
+				94A96716279A2CAE001A3B14 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				94A96719279A2E6E001A3B14 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 9445FF32274D9E1500140B5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -525,6 +591,7 @@
 			files = (
 				942AA544276E5D1F005F0122 /* Loading.swift in Sources */,
 				942AA51227615A03005F0122 /* CustomShadow.swift in Sources */,
+				94A9672E279A4564001A3B14 /* RealmCacheManager.swift in Sources */,
 				9445FFD1275AB89400140B5D /* FriendsViewController.swift in Sources */,
 				9445FFF72760334500140B5D /* LikeControl.swift in Sources */,
 				942AA56F27714D4C005F0122 /* BouncePicture.swift in Sources */,
@@ -532,11 +599,14 @@
 				942AA53F27695749005F0122 /* NewsLoader.swift in Sources */,
 				94A96704277AA458001A3B14 /* PopAnimators.swift in Sources */,
 				942AA534276651D4005F0122 /* NewsLikeControl.swift in Sources */,
+				94A96722279A3681001A3B14 /* CasheCoreData.xcdatamodeld in Sources */,
+				94A96738279CCE15001A3B14 /* GroupModel.swift in Sources */,
 				942AA52727654242005F0122 /* NewsController.swift in Sources */,
 				9445FFEE275BC3E800140B5D /* PhotoCollectionViewCell.swift in Sources */,
 				94A96715279265D5001A3B14 /* GroupsService.swift in Sources */,
 				9445FFEB275BC3AB00140B5D /* FriendPhotoCollectionViewController.swift in Sources */,
 				94A9670B278CF090001A3B14 /* VKService.swift in Sources */,
+				94A96731279C9A09001A3B14 /* PhotoService.swift in Sources */,
 				94A96713279106F0001A3B14 /* FriendsServiceManager.swift in Sources */,
 				942AA52E276563B8005F0122 /* NewsModel.swift in Sources */,
 				942AA514276167A0005F0122 /* CustomPicture.swift in Sources */,
@@ -549,16 +619,19 @@
 				942AA52B2765431A005F0122 /* CustomNewsCell.swift in Sources */,
 				94A96702277AA435001A3B14 /* PushAnimator.swift in Sources */,
 				942AA519276182D7005F0122 /* FriendsLoader.swift in Sources */,
+				94A9672C279A3A6A001A3B14 /* CoreDataServiceManager.swift in Sources */,
 				9445FF35274D9E1500140B5D /* AppDelegate.swift in Sources */,
 				942AA51B2762EFAE005F0122 /* CustomLabel.swift in Sources */,
+				94A9672A279A39DC001A3B14 /* Human+CoreDataProperties.swift in Sources */,
 				942AA517276182CB005F0122 /* FriendsSection.swift in Sources */,
 				94A966FC2773F811001A3B14 /* PhotoCarouselViewController.swift in Sources */,
 				9445FFDD275ACDCE00140B5D /* FriendModel.swift in Sources */,
 				9445FF37274D9E1500140B5D /* SceneDelegate.swift in Sources */,
 				94A9670F2790FCC0001A3B14 /* FriendServiceModel.swift in Sources */,
 				942AA5392766F4C0005F0122 /* GroupsLoader.swift in Sources */,
+				94A9671F279A2F81001A3B14 /* CacheTestViewController.swift in Sources */,
+				94A96734279C9BD1001A3B14 /* PhotoFriendsModel.swift in Sources */,
 				9445FFE8275B26A400140B5D /* MyGroupsViewController.swift in Sources */,
-				9445FFDB275ACD7000140B5D /* GroupModel.swift in Sources */,
 				942AA53627665847005F0122 /* SeenControl.swift in Sources */,
 				942AA566276E8082005F0122 /* SpinningCircleView.swift in Sources */,
 				9445FFE6275B267E00140B5D /* MyGroupsCell.swift in Sources */,
@@ -567,8 +640,10 @@
 				9445FFD7275AB9C600140B5D /* GroupsViewCell.swift in Sources */,
 				9445FFD3275AB8B800140B5D /* GroupsViewController.swift in Sources */,
 				942AA569276E98C7005F0122 /* ThreeCirclesView.swift in Sources */,
+				94A9673A279CD733001A3B14 /* JoinOrLeaveGroup.swift in Sources */,
 				94A96706277AA4A1001A3B14 /* InteractiveTransition.swift in Sources */,
 				94A9670D2790EE93001A3B14 /* FriendService.swift in Sources */,
+				94A96729279A39DC001A3B14 /* Human+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +865,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94A96716279A2CAE001A3B14 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		94A96719279A2E6E001A3B14 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94A96717279A2CAE001A3B14 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A96716279A2CAE001A3B14 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		94A9671A279A2E6E001A3B14 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A96719279A2E6E001A3B14 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		94A9671C279A2E6E001A3B14 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A96719279A2E6E001A3B14 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		94A96720279A3680001A3B14 /* CasheCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				94A96721279A3681001A3B14 /* CasheCoreData.xcdatamodel */,
+			);
+			currentVersion = 94A96721279A3681001A3B14 /* CasheCoreData.xcdatamodel */;
+			path = CasheCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9445FF29274D9E1500140B5D /* Project object */;
 }

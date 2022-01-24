@@ -9,7 +9,6 @@ import UIKit
 
 final class MyGroupsViewController: UITableViewController {
     
-    var myGroups: [GroupModel] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -27,10 +26,10 @@ final class MyGroupsViewController: UITableViewController {
 			return UITableViewCell()
 		}
 
-        let name = myGroups[indexPath.row].name
-        let avatar = myGroups[indexPath.row].avatar
+//        let name = myGroups[indexPath.row].name
+//        let avatar = myGroups[indexPath.row].avatar
         
-        cell.configure(name: name, avatar: UIImage(named: avatar)!)
+//        cell.configure(name: name, avatar: UIImage(named: avatar)!)
 
 		return cell
 	}

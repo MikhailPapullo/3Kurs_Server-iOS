@@ -5,6 +5,9 @@
 //  Created by Mikhail Papullo on 1/13/22.
 //
 
+import Foundation
+import RealmSwift
+
 struct FriendsVK: Decodable {
     let response: ResponseFriends
 }
@@ -14,10 +17,10 @@ struct ResponseFriends: Decodable {
     let items: [Friend]
 }
 
-struct Friend: Decodable {
-    let id: Int
-    let firstName, lastName: String
-    let photo50: String
+class Friend: Object, Decodable {
+    @objc dynamic var id: Int
+    @objc dynamic var firstName, lastName: String
+    @objc dynamic var photo50: String
     
     enum CodingKeys: String, CodingKey {
         case id

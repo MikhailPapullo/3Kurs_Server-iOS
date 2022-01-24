@@ -1,19 +1,20 @@
 //
-//  GroupsService.swift
+//  PhotoService.swift
 //  NeVK
 //
-//  Created by Mikhail Papullo on 1/14/22.
+//  Created by Mikhail Papullo on 1/22/22.
 //
 
 import Foundation
 
-enum GroupsError: Error {
+
+enum PhotosError: Error {
     case parseError
     case requestError(Error)
 }
 
 fileprivate enum TypeMethods: String {
-    case groupsGet = "/method/groups.get"
+    case photosGetAll = "/method/photos.getAll"
 }
 
 fileprivate enum TypeReqests: String {
@@ -21,52 +22,50 @@ fileprivate enum TypeReqests: String {
     case post = "POST"
 }
 
-final class GroupsService {
-    private  let scheme = "https"
-    private let host = "api.vk.com"
-    
+class PhotoService {
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         return session
     }()
     
-    func loadGroup(complition: @escaping ((Result<GroupsVK, GroupsError>) -> ())) {
-        guard let token = SessionOrangeVK.instance.token else {
-            return
-        }
-        let params: [String: String] = ["v": "5.81",
-                                        "access_token": token,
-                                        "fields": "photo_50"
-        ]
+    private let scheme = "https"
+    private let host = "api.vk.com"
+    
+    private let decoder = JSONDecoder()
+    
+    func loadPhoto(idFriend: String, completion: @escaping (Result<[InfoPhotoFriend], PhotosError>) -> Void) {
+        guard let token = SessionOrangeVK.instance.token else { return }
+        
+        let params: [String: String] = ["owner_id": idFriend,
+                                        "extended": "1",
+                                        "count": "200"]
         
         let url = configureUrl(token: token,
-                               method: .groupswGet,
+                               method: .photosGetAll,
                                htttpMethod: .get,
                                params: params)
         print(url)
-        
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
-                return complition(.failure(.requestError(error)))
+                return completion(.failure(.requestError(error)))
             }
-            
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            
+            guard let data = data else {
+                return
+            }
             do {
-                let result = try decoder.decode(FriendsVK.self, from: data)
+                let result = try self.decoder.decode(PhotoFriends.self, from: data)
                 print(result)
-                return complition(.success(result))
+                return completion(.success(result.response.items))
             } catch {
-                return complition(.failure(.parseError))
+                return completion(.failure(.parseError))
             }
         }
         task.resume()
     }
 }
 
-private extension GroupsService {
+private extension PhotoService {
     func configureUrl(token: String,
                       method: TypeMethods,
                       htttpMethod: TypeReqests,
@@ -91,4 +90,3 @@ private extension GroupsService {
         return url
     }
 }
-

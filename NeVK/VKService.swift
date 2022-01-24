@@ -17,7 +17,10 @@ class VKService: UIViewController {
         }
     }
     
+    let keychainWrapper = "https://github.com/jrendel/SwiftKeychainWrapper"
+    
     var session = SessionOrangeVK.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAuth()
@@ -37,6 +40,7 @@ private extension VKService {
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "offline, friends, photos, groups"),
             URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "revoke", value: "0")
         ]
         let request = URLRequest(url: urlComponents.url!)
         webView.load(request)
