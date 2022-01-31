@@ -44,6 +44,8 @@
 		9445FFEE275BC3E800140B5D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFED275BC3E800140B5D /* PhotoCollectionViewCell.swift */; };
 		9445FFF72760334500140B5D /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFF62760334500140B5D /* LikeControl.swift */; };
 		9445FFF92760417F00140B5D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445FFF82760417E00140B5D /* GradientView.swift */; };
+		94A4C10F279F6BF100D7879B /* VKEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4C10E279F6BF100D7879B /* VKEntity.swift */; };
+		94A4C111279F8EF100D7879B /* RealmCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4C110279F8EF100D7879B /* RealmCacheService.swift */; };
 		94A966FC2773F811001A3B14 /* PhotoCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A966FB2773F811001A3B14 /* PhotoCarouselViewController.swift */; };
 		94A966FE277AA293001A3B14 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A966FD277AA293001A3B14 /* CustomNavigationController.swift */; };
 		94A96702277AA435001A3B14 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A96701277AA435001A3B14 /* PushAnimator.swift */; };
@@ -115,6 +117,8 @@
 		9445FFED275BC3E800140B5D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		9445FFF62760334500140B5D /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		9445FFF82760417E00140B5D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		94A4C10E279F6BF100D7879B /* VKEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKEntity.swift; sourceTree = "<group>"; };
+		94A4C110279F8EF100D7879B /* RealmCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCacheService.swift; sourceTree = "<group>"; };
 		94A966FB2773F811001A3B14 /* PhotoCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselViewController.swift; sourceTree = "<group>"; };
 		94A966FD277AA293001A3B14 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		94A96701277AA435001A3B14 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				94A9671E279A2F81001A3B14 /* CacheTestViewController.swift */,
 				94A9672B279A3A6A001A3B14 /* CoreDataServiceManager.swift */,
 				94A96720279A3680001A3B14 /* CasheCoreData.xcdatamodeld */,
+				94A4C10E279F6BF100D7879B /* VKEntity.swift */,
+				94A4C110279F8EF100D7879B /* RealmCacheService.swift */,
 			);
 			path = NeVK;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 				9445FFF72760334500140B5D /* LikeControl.swift in Sources */,
 				942AA56F27714D4C005F0122 /* BouncePicture.swift in Sources */,
 				94A967092782B783001A3B14 /* SessionOrangeVK.swift in Sources */,
+				94A4C10F279F6BF100D7879B /* VKEntity.swift in Sources */,
 				942AA53F27695749005F0122 /* NewsLoader.swift in Sources */,
 				94A96704277AA458001A3B14 /* PopAnimators.swift in Sources */,
 				942AA534276651D4005F0122 /* NewsLikeControl.swift in Sources */,
@@ -612,6 +619,7 @@
 				942AA514276167A0005F0122 /* CustomPicture.swift in Sources */,
 				94A966FE277AA293001A3B14 /* CustomNavigationController.swift in Sources */,
 				942AA56B2771460B005F0122 /* BounceImage.swift in Sources */,
+				94A4C111279F8EF100D7879B /* RealmCacheService.swift in Sources */,
 				942AA5322765988C005F0122 /* CommentControl.swift in Sources */,
 				9445FFF92760417F00140B5D /* GradientView.swift in Sources */,
 				9445FF39274D9E1500140B5D /* ViewController.swift in Sources */,

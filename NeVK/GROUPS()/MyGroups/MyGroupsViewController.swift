@@ -9,56 +9,71 @@ import UIKit
 
 final class MyGroupsViewController: UITableViewController {
     
-
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        return session
+    }()
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        getUserGroupList()
 	}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addGroup" {
+            guard
+                let groupsViewController = segue.source as? GroupsViewController
+            else {
+                return }
+
+            }
+        }
+    }
 
 	// MARK: - Table view data source
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return myGroups.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		3
 	}
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard
 			let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupCell", for: indexPath) as? MyGroupsCell
 		else {
 			return UITableViewCell()
 		}
 
-//        let name = myGroups[indexPath.row].name
-//        let avatar = myGroups[indexPath.row].avatar
-        
-//        cell.configure(name: name, avatar: UIImage(named: avatar)!)
-
 		return cell
 	}
 
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			myGroups.remove(at: indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
+    private extension MyGroupsViewController {
 
-	@IBAction func addGroup(segue: UIStoryboardSegue) {
+        func getUserGroupList() {
+            var urlConstructor = URLComponents()
 
-		if segue.identifier == "addGroup" {
-			guard
-				let groupsViewController = segue.source as? GroupsViewController
-			else {
-				return
-			}
+            urlConstructor.scheme = "https"
+            urlConstructor.host = "api.vk.com"
+            urlConstructor.path = "/method/groups.get"
+            urlConstructor.queryItems = [
+                URLQueryItem(name: "access_token", value: SessionOrangeVK.instance.token),
+                URLQueryItem(name: "user_id", value: String(SessionOrangeVK.instance.userId!)),
+                URLQueryItem(name: "extended", value: "1"),
+                URLQueryItem(name: "v", value: "5.131")
+            ]
 
-			if let indexPath = groupsViewController.tableView.indexPathForSelectedRow {
-				let group = groupsViewController.groups[indexPath.row]
-				if !myGroups.contains(where: { $0 == group }) {
+            guard let url = urlConstructor.url else {
+                return
+            }
 
-					myGroups.append(group)
-
-					tableView.reloadData()
-				}
-			}
-		}
-	}
+            let request = URLRequest(url: url)
+            let task = session.dataTask(with: request) { (data, response, error) in
+                let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                print(">>> GET GROUP LIST: \(json)")
+            }
+            task.resume()
+    }
 }
+
