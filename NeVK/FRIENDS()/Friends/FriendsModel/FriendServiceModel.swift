@@ -8,19 +8,20 @@
 import Foundation
 import RealmSwift
 
-struct FriendsVK: Decodable {
+struct FriendsVK: Codable {
     let response: ResponseFriends
 }
 
-struct ResponseFriends: Decodable {
+struct ResponseFriends: Codable {
     let count: Int
     let items: [Friend]
 }
 
-class Friend: Object, Decodable {
-    @objc dynamic var id: Int
-    @objc dynamic var firstName, lastName: String
-    @objc dynamic var photo50: String
+class Friend: Object, Codable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var photo50: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -31,9 +32,5 @@ class Friend: Object, Decodable {
     
     override class func primaryKey() -> String? {
         return "id"
-    }
-    
-    override class func indexedProperties() -> [String] {
-        return ["firstName"]
     }
 }

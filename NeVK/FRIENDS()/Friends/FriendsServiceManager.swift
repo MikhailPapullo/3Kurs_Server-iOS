@@ -14,13 +14,31 @@ class FriendsServiceManager {
     private var service = FriendService()
     private let imageService = ImageLoader()
     
+    var persistence = RealmCacheService()
+    
+    let cacheKey = "usersExpiry"
+    
     func loadFriends(completion: @escaping([FriendsSection]) -> Void) {
+        if checkExpiry(key: cacheKey) {
+            guard let realm = try? Realm() else { return }
+            let friends = realm.objects(Friend.self)
+            let friendsArray = Array(friends)
+            
+            if !friends.isEmpty {
+                let sections = formFriendsArray(from: friendsArray)
+                completion(sections)
+                return
+            }
+        }
         service.loadFriend { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let friend):
+                DispatchQueue.global(qos: .background).async {
+                    self.persistence.create(friend.response.items)
+                }
                 let section = self.formFriendsArray(from: friend.response.items)
-                self.saveFriend(friends: friend.response.items)
+                self.setExpiry(key: self.cacheKey, time: 10 * 60)
                 completion(section)
             case .failure(_):
                 return
@@ -43,14 +61,19 @@ class FriendsServiceManager {
 }
 private extension FriendsServiceManager {
     
-    func saveFriend(friends: [Friend]) {
-        do {
-            let realm = try Realm()
-            realm.beginWrite()
-            realm.add(friends)
-            try realm.commitWrite()
-        } catch {
-            print(error)
+    func setExpiry(key: String, time: Double) {
+        let date = (Date.init() + time).timeIntervalSince1970
+        UserDefaults.standard.set(String(date), forKey: key)
+    }
+    
+    func checkExpiry(key: String) -> Bool {
+        let expiryDate = UserDefaults.standard.string(forKey: key) ?? "0"
+        let currentDate = String(Date.init().timeIntervalSince1970)
+        
+        if expiryDate > currentDate {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -60,6 +83,7 @@ private extension FriendsServiceManager {
         }
         let sorted = sortFriends(array: array)
         return formFriendsSection(array: sorted)
+
     }
     
     func sortFriends(array: [Friend]) -> [Character: [Friend]] {

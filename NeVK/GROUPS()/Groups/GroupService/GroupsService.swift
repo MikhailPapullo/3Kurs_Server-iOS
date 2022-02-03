@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum GroupError: Error {
     case parseError
@@ -25,6 +26,9 @@ fileprivate enum TypeRequests: String {
 }
 
 class GroupsService {
+    
+    private var realm = RealmCacheService()
+    
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -33,16 +37,31 @@ class GroupsService {
 
     private let scheme = "https"
     private let host = "api.vk.com"
+    private let cacheKey = "groups"
 
     private let decoder = JSONDecoder()
 
     func loadGroups(completion: @escaping (Result<[Group], GroupError>) -> Void) {
+        
+        if checkExpiry(key: cacheKey) {
+            guard let realm = try? Realm() else { return }
+            let groups = realm.objects(Group.self)
+            let groupArray = Array(groups)
+            
+            if !groups.isEmpty {
+                completion(.success(groupsArray))
+                return
+            }
+        }
+            
         guard let token = SessionOrangeVK.instance.token else { return }
         let params: [String: String] = ["extended": "1"]
+        
         let url = configureUrl(token: token,
                                method: .groupsGet,
                                htttpMethod: .get,
                                params: params)
+        print(url)
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 return completion(.failure(.requestError(error)))
@@ -51,9 +70,13 @@ class GroupsService {
                 return
             }
             do {
-                let result = try self.decoder.decode(SearchGroup.self, from: data)
+                let result = try self.decoder.decode(SearchGroup.self, from: data).response.items
+                
+                DispatchQueue.main.async {
+                    self.realm.create(result)
+                }
 
-                return completion(.success(result.response.items))
+                return completion(.success(result))
             } catch {
                 completion(.failure(.parseError))
             }
@@ -139,6 +162,23 @@ class GroupsService {
 }
 
 private extension GroupsService {
+
+    func setExpiry(key: String, time: Double) {
+        let date = (Date.init() + time).timeIntervalSince1970
+        UserDefaults.standard.set(String(date), forKey: key)
+    }
+
+    func checkExpiry(key: String) -> Bool {
+        let expiryDate = UserDefaults.standard.string(forKey: key) ?? "0"
+        let currentDate = String(Date.init().timeIntervalSince1970)
+
+        if expiryDate > currentDate {
+            return true
+        } else {
+            return false
+        }
+    }
+
     func configureUrl(token: String,
                       method: TypeMethods,
                       htttpMethod: TypeRequests,
@@ -163,4 +203,5 @@ private extension GroupsService {
         return url
     }
 }
+
 

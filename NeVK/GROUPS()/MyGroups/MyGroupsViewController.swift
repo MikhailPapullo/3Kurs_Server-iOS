@@ -6,32 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class MyGroupsViewController: UITableViewController {
     
-    private let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        return session
-    }()
-	override func viewDidLoad() {
-		super.viewDidLoad()
-        getUserGroupList()
-	}
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addGroup" {
-            guard
-                let groupsViewController = segue.source as? GroupsViewController
-            else {
-                return }
-
-            }
-        }
+    private let service = GroupsService()
+    private lazy var realm = RealmCacheService()
+    private var groupResponse: Results<Group>? {
+        realm.read(Group.self)
     }
+
+    private var notificationToken: NotificationToken?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createNotificationGroupToken()
+        getUserGroupList()
+    }
+}
 
 	// MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		3
+        return groupResponse?.count ?? 0
 	}
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,6 +36,9 @@ final class MyGroupsViewController: UITableViewController {
 		else {
 			return UITableViewCell()
 		}
+        if let groups = groupResponse {
+            cell.configure(group: groups[indexPath.row])
+        }
 
 		return cell
 	}
@@ -49,31 +48,57 @@ final class MyGroupsViewController: UITableViewController {
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
-    private extension MyGroupsViewController {
+private extension MyGroupsViewController {
 
         func getUserGroupList() {
-            var urlConstructor = URLComponents()
-
-            urlConstructor.scheme = "https"
-            urlConstructor.host = "api.vk.com"
-            urlConstructor.path = "/method/groups.get"
-            urlConstructor.queryItems = [
-                URLQueryItem(name: "access_token", value: SessionOrangeVK.instance.token),
-                URLQueryItem(name: "user_id", value: String(SessionOrangeVK.instance.userId!)),
-                URLQueryItem(name: "extended", value: "1"),
-                URLQueryItem(name: "v", value: "5.131")
-            ]
-
-            guard let url = urlConstructor.url else {
-                return
+            service.loadGroups { result in
+                switch result {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print("\(error)")
+                }
             }
+        }
 
-            let request = URLRequest(url: url)
-            let task = session.dataTask(with: request) { (data, response, error) in
-                let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                print(">>> GET GROUP LIST: \(json)")
+        func createNotificationGroupToken() {
+            notificationToken = groupResponse?.observe{ [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .initial(let groupsData):
+                    print("init with \(groupsData.count) groups")
+                case .update(let groups,
+                             deletions: let deletetions,
+                             insertions: let insertions,
+                             modifications: let modifications):
+                    print("""
+    new count \(groups.count)
+    deletions \(deletetions)
+    insertions \(insertions)
+    modifications \(modifications)
+    """)
+                    let deletionsIndexPath = deletetions.map { IndexPath(row: $0, section: $0) }
+                    let insertionsIndexPath = insertions.map { IndexPath(row: $0, section: $0) }
+                    let modificationsIndexPath = modifications.map { IndexPath(row: $0, section: $0) }
+
+                    DispatchQueue.main.async {
+
+                        self.tableView.beginUpdates()
+
+                        self.tableView.deleteRows(at: deletionsIndexPath, with: .automatic)
+
+                        self.tableView.insertRows(at: insertionsIndexPath, with: .automatic)
+
+                        self.tableView.reloadRows(at: modificationsIndexPath, with: .automatic)
+
+                        self.tableView.endUpdates()
+                    }
+                case .error(let error):
+                    print("\(error)")
+                }
             }
-            task.resume()
+        }
     }
-}
 

@@ -47,6 +47,9 @@ final class FriendsViewController: UITableViewController {
         self.tableView.sectionHeaderHeight = 50.0
         searchBar.delegate = self
         fetchFriends()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,14 +111,21 @@ final class FriendsViewController: UITableViewController {
             let vc = segue.destination as? FriendPhotoCollectionViewController,
             let indexPathSection = tableView.indexPathForSelectedRow?.section,
             let indexPathRow = tableView.indexPathForSelectedRow?.row
-            else {
+        else {
                 return
             }
             let section = filteredFriends[indexPathSection]
-//            vc.friend = section.data[indexPathRow]
+            let firstName = section.data[indexPathRow].firstName
+            let friendId = section.data[indexPathRow].id
+            let photo = section.data[indexPathRow].photo50
+            
+            vc.friendName = firstName
+            vc.friendId = String(friendId)
+            vc.friendAvatar = photo
         }
     }
 }
+
 // MARK: - UISearchBarDelegate
 extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -204,9 +214,6 @@ private extension FriendsViewController {
             self.friends = friends
             self.filteredFriends = friends
             self.loadLetters()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
         }
     }
     

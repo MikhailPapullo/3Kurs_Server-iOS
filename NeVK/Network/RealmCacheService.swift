@@ -19,33 +19,31 @@ final class RealmCacheService {
 
     init() {
         do {
-            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-            self.realm = try Realm(configuration: config)
-            print(realm.configuration.fileURL)
+//            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            self.realm = try Realm()
+            print(realm.configuration.fileURL ?? "")
         } catch {
             fatalError(error.localizedDescription)
         }
     }
 
-    func create<T: Object>(_ object: T, completion: (Result<Bool, Error>) -> Void) {
+    func create<T: Object>(_ object: T) {
         do {
             realm.beginWrite()
             realm.add(object, update: .modified)
             try realm.commitWrite()
-            completion(.success(true))
         } catch {
-            completion(.failure(error))
+            print(error)
         }
     }
 
-    func create<T: Object>(_ objects: [T], completion: (Result<Bool, Error>) -> Void) {
+    func create<T: Object>(_ objects: [T]) {
         do {
             realm.beginWrite()
             realm.add(objects, update: .modified)
             try realm.commitWrite()
-            completion(.success(true))
         } catch {
-            completion(.failure(error))
+            print(error)
         }
     }
 
@@ -88,7 +86,7 @@ final class RealmCacheService {
             return
         }
 
-        guard let object = realm.objects(T.self).filter("\(primaryKey) = %@", Int(keyValue)).first else {
+        guard let object = realm.objects(T.self).filter("\(primaryKey) = %@", Int(keyValue)!).first else {
             completion(.failure(errors.noRealmObject("There is no such object")))
             return
         }

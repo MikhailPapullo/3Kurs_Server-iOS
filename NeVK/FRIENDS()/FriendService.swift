@@ -31,6 +31,8 @@ final class FriendService {
         return session
     }()
     
+    let realmCacheService = RealmCacheService()
+    
     func loadFriend(complition: @escaping ((Result<FriendsVK, FriendsError>) -> ())) {
         guard let token = SessionOrangeVK.instance.token else {
             return
@@ -65,8 +67,9 @@ final class FriendService {
         task.resume()
     }
 }
-
+// MARK: - Private
 private extension FriendService {
+    
     func configureUrl(token: String,
                       method: TypeMethods,
                       htttpMethod: TypeReqests,
