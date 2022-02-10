@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellId" rowHeight="473" id="xms-bk-TNW" customClass="CustomNewsCell" customModule="NeVK" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="449" height="524"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xms-bk-TNW" id="ZjA-Ch-5rR">
+                <rect key="frame" x="0.0" y="0.0" width="449" height="524"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAp-mG-zO1">
+                        <rect key="frame" x="0.0" y="0.0" width="449" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="odg-mR-vBS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L0n-Mp-UY7" customClass="BouncePicture" customModule="NeVK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="50" width="449" height="449"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="L0n-Mp-UY7" secondAttribute="height" multiplier="1:1" id="4pf-gD-BCs"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BS6-dW-Oje">
+                        <rect key="frame" x="0.0" y="499" width="449" height="25"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NuK-Zv-6C8" userLabel="NewsLike" customClass="NewsLikeControl" customModule="NeVK" customModuleProvider="target">
+                                <rect key="frame" x="25" y="0.0" width="50" height="25"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="aX8-Xy-Za8"/>
+                                    <constraint firstAttribute="width" secondItem="NuK-Zv-6C8" secondAttribute="height" multiplier="1:1" id="dRj-P2-9Gd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAC-ot-lM0" userLabel="newsComments" customClass="CommentControl" customModule="NeVK" customModuleProvider="target">
+                                <rect key="frame" x="75" y="0.0" width="50" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bubble.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-x1-Lcm">
+                                        <rect key="frame" x="14" y="2.5" width="22.5" height="19.5"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nX5-x1-Lcm" firstAttribute="centerX" secondItem="mAC-ot-lM0" secondAttribute="centerX" id="5M0-tN-qmi"/>
+                                    <constraint firstAttribute="width" constant="50" id="bYu-2d-BZK"/>
+                                    <constraint firstItem="nX5-x1-Lcm" firstAttribute="centerY" secondItem="mAC-ot-lM0" secondAttribute="centerY" id="hkG-ZJ-j24"/>
+                                    <constraint firstAttribute="width" secondItem="mAC-ot-lM0" secondAttribute="height" multiplier="1:1" id="x7G-4D-XIc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alB-lN-7qz" userLabel="newsShare">
+                                <rect key="frame" x="125" y="0.0" width="50" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="paperplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="loj-ma-WUN">
+                                        <rect key="frame" x="15" y="2.5" width="21" height="19.5"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="alB-lN-7qz" secondAttribute="height" multiplier="1:1" id="7if-4a-3Ob"/>
+                                    <constraint firstItem="loj-ma-WUN" firstAttribute="centerX" secondItem="alB-lN-7qz" secondAttribute="centerX" id="htT-7n-XKo"/>
+                                    <constraint firstAttribute="width" constant="50" id="nCj-zW-ofy"/>
+                                    <constraint firstItem="loj-ma-WUN" firstAttribute="centerY" secondItem="alB-lN-7qz" secondAttribute="centerY" id="sHU-aZ-UKk"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P1L-1X-LSp" userLabel="newsSeen" customClass="SeenControl" customModule="NeVK" customModuleProvider="target">
+                                <rect key="frame" x="175" y="0.0" width="50" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BsU-fy-tZx">
+                                        <rect key="frame" x="12" y="3.5" width="26" height="16.5"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P1L-1X-LSp" secondAttribute="height" multiplier="1:1" id="09G-wW-jCR"/>
+                                    <constraint firstItem="BsU-fy-tZx" firstAttribute="centerX" secondItem="P1L-1X-LSp" secondAttribute="centerX" id="6AB-4p-3Ph"/>
+                                    <constraint firstAttribute="width" constant="50" id="aDV-Hd-8l7"/>
+                                    <constraint firstItem="BsU-fy-tZx" firstAttribute="centerY" secondItem="P1L-1X-LSp" secondAttribute="centerY" id="rDc-xR-HdF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NuK-Zv-6C8" secondAttribute="bottom" id="279-hR-Aby"/>
+                            <constraint firstItem="alB-lN-7qz" firstAttribute="top" secondItem="BS6-dW-Oje" secondAttribute="top" id="69v-jD-HZG"/>
+                            <constraint firstAttribute="bottom" secondItem="mAC-ot-lM0" secondAttribute="bottom" id="7nY-9n-xBN"/>
+                            <constraint firstAttribute="bottom" secondItem="alB-lN-7qz" secondAttribute="bottom" id="AxV-m3-Pms"/>
+                            <constraint firstItem="NuK-Zv-6C8" firstAttribute="leading" secondItem="BS6-dW-Oje" secondAttribute="leading" constant="25" id="Foh-DM-zG4"/>
+                            <constraint firstItem="NuK-Zv-6C8" firstAttribute="top" secondItem="BS6-dW-Oje" secondAttribute="top" id="HJH-NK-G6F"/>
+                            <constraint firstItem="mAC-ot-lM0" firstAttribute="top" secondItem="BS6-dW-Oje" secondAttribute="top" id="ISp-Fg-km3"/>
+                            <constraint firstAttribute="bottom" secondItem="P1L-1X-LSp" secondAttribute="bottom" id="Ise-Gv-UU6"/>
+                            <constraint firstItem="P1L-1X-LSp" firstAttribute="top" secondItem="BS6-dW-Oje" secondAttribute="top" id="PoP-oT-WoF"/>
+                            <constraint firstItem="alB-lN-7qz" firstAttribute="leading" secondItem="mAC-ot-lM0" secondAttribute="trailing" id="SGb-sU-Kjv"/>
+                            <constraint firstItem="mAC-ot-lM0" firstAttribute="leading" secondItem="NuK-Zv-6C8" secondAttribute="trailing" id="oux-st-V5i"/>
+                            <constraint firstAttribute="bottom" secondItem="mAC-ot-lM0" secondAttribute="bottom" id="qvZ-YV-yXe"/>
+                            <constraint firstItem="P1L-1X-LSp" firstAttribute="leading" secondItem="alB-lN-7qz" secondAttribute="trailing" id="rf3-vZ-yUA"/>
+                            <constraint firstAttribute="bottom" secondItem="P1L-1X-LSp" secondAttribute="bottom" id="s9W-aA-Q7d"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="leading" secondItem="L0n-Mp-UY7" secondAttribute="leading" id="0yw-mm-gsy"/>
+                    <constraint firstItem="L0n-Mp-UY7" firstAttribute="top" secondItem="lAp-mG-zO1" secondAttribute="bottom" id="8sO-Bs-0Q5"/>
+                    <constraint firstAttribute="trailing" secondItem="BS6-dW-Oje" secondAttribute="trailing" id="8zZ-Qf-Q7a"/>
+                    <constraint firstAttribute="trailing" secondItem="lAp-mG-zO1" secondAttribute="trailing" id="9eD-Fk-QyP"/>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="trailing" secondItem="L0n-Mp-UY7" secondAttribute="trailing" id="DVt-hH-GSf"/>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="top" secondItem="ZjA-Ch-5rR" secondAttribute="top" id="EPA-fe-Q1x"/>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="leading" secondItem="L0n-Mp-UY7" secondAttribute="leading" id="ESS-GF-HZS"/>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="leading" secondItem="ZjA-Ch-5rR" secondAttribute="leading" id="Hzd-WO-bsB"/>
+                    <constraint firstItem="BS6-dW-Oje" firstAttribute="top" secondItem="L0n-Mp-UY7" secondAttribute="bottom" id="Lni-S9-AHq"/>
+                    <constraint firstItem="BS6-dW-Oje" firstAttribute="leading" secondItem="ZjA-Ch-5rR" secondAttribute="leading" id="RJ8-wb-peu"/>
+                    <constraint firstItem="L0n-Mp-UY7" firstAttribute="leading" secondItem="ZjA-Ch-5rR" secondAttribute="leading" id="X3Y-ZZ-1Ve"/>
+                    <constraint firstAttribute="bottom" secondItem="BS6-dW-Oje" secondAttribute="bottom" id="bAY-bw-NoQ"/>
+                    <constraint firstAttribute="trailing" secondItem="L0n-Mp-UY7" secondAttribute="trailing" id="cFp-Wm-e4t"/>
+                    <constraint firstItem="lAp-mG-zO1" firstAttribute="width" secondItem="ZjA-Ch-5rR" secondAttribute="width" id="yJr-qX-CoB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="newsName" destination="lAp-mG-zO1" id="xbj-UJ-MfV"/>
+                <outlet property="newsPhoto" destination="L0n-Mp-UY7" id="KQn-At-JPu"/>
+            </connections>
+            <point key="canvasLocation" x="251.44927536231887" y="28.794642857142854"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bubble.right" catalog="system" width="128" height="110"/>
+        <image name="eye" catalog="system" width="128" height="81"/>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
