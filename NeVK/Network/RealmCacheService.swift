@@ -56,10 +56,8 @@ final class RealmCacheService {
         }
     }
 
-    func read<T: Object>(_ object: T.Type, completion: (Results<T>) -> Void) {
-
-        let result = realm.objects(T.self)
-        completion(result)
+    func read<T: Object>(_ object: T.Type) -> Results<T> {
+        return realm.objects(T.self)
     }
 
     func update<T: Object>(_ object: T, completion: (Result<Bool, Error>) -> Void) {

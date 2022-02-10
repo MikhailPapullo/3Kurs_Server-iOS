@@ -11,9 +11,15 @@ class GroupsViewCell: UITableViewCell {
     
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupAvatar: UIImageView!
+    
+    private let imageService = FriendsServiceManager()
 
-    func configure(name: String, avatar: UIImage) {
+    func configure(group: Group) {
         groupName.text = name
-        groupAvatar.image = avatar
+        
+        imageService.loadImage(url: group.photo100) { [weak self] image in
+            guard let self = self else { return }
+            self.groupAvatar.image = image
+        }
     }
 }

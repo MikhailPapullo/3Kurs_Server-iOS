@@ -16,6 +16,7 @@ class MyGroupsCell: UITableViewCell {
     
     func configure(group: Group) {
         myGroupName.text = group.name
+        
         imageService.loadImage(url: group.photo100) { [weak self] image in
             guard let self =  self else { return }
             self.myGroupAvatar.image = image
